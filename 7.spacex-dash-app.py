@@ -15,9 +15,9 @@ min_payload = spacex_df['Payload Mass (kg)'].min()
 # Create a dash application
 app = dash.Dash(__name__)
 
-# -------------------------------------------------------------------
+
 # TASK 1: Create app layout with dropdown, pie chart, slider, scatter
-# -------------------------------------------------------------------
+
 app.layout = html.Div(children=[
     html.H1('SpaceX Launch Records Dashboard',
             style={'textAlign': 'center', 'color': '#503D36', 'font-size': 40}),
@@ -62,9 +62,9 @@ app.layout = html.Div(children=[
     html.Div(dcc.Graph(id='success-payload-scatter-chart')),
 ])
 
-# -------------------------------------------------------------------
+
 # TASK 2: Callback for pie chart
-# -------------------------------------------------------------------
+
 @app.callback(
     Output(component_id='success-pie-chart', component_property='figure'),
     Input(component_id='site-dropdown', component_property='value')
@@ -87,9 +87,9 @@ def get_pie_chart(entered_site):
         )
         return fig
 
-# -------------------------------------------------------------------
+
 # TASK 4: Callback for scatter chart
-# -------------------------------------------------------------------
+
 @app.callback(
     Output(component_id='success-payload-scatter-chart', component_property='figure'),
     [
@@ -124,8 +124,8 @@ def update_scatter(selected_site, payload_range):
         )
         return fig
 
-# -------------------------------------------------------------------
+
 # Run the app
-# -------------------------------------------------------------------
+
 if __name__ == '__main__':
     app.run()
